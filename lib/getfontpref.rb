@@ -14,6 +14,7 @@ def getfontname
 end
 
 def getfontsize
-  font_size = ($prefs['OakTextViewNormalFontSize'] || 11).to_s
-	font_size.sub!(/\.\d+$/, '')
+	#   font_size = (\$prefs['OakTextViewNormalFontSize'] || 11).to_s
+	# font_size.sub!(/\.\d+$/, '')
+	11
 end

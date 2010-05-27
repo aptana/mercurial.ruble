@@ -6,10 +6,8 @@
 # you are of course free to modify this.
 
 # Needed to easily convert date
-require 'parsedate' 
-#require "#{ENV['TM_SUPPORT_PATH']}/lib/web_preview.rb"
+require 'parsedate'
 require 'web_preview'
-# require "/Library/Application Support/TextMate/Bundles/Mercurial.tmbundle/Support/web_preview.rb"
 
 
 module HGHelper   
@@ -35,8 +33,8 @@ module HGHelper
             encoded_file_url << sprintf( '%%%02x', b )
          end
       end
-      
-      'txmt://open?url=' + encoded_file_url + ((line.nil?) ? '' : '&amp;line='+line.to_s)
+      # FIXME Do we handle links of some specific fake URI scheme?
+      'studio://open?url=' + encoded_file_url + ((line.nil?) ? '' : '&amp;line='+line.to_s)
    end
    
    
