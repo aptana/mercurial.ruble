@@ -13,7 +13,7 @@ command 'Status' do |cmd|
     
     hg = ENV['TM_HG'] || "hg"
     output = %x{#{hg} status --debug #{ENV['TM_SELECTED_FILES']} 2>&1}
-    format_status(:status, StringIO.new(output))
+    format_status(:status, StringIO.new(output)) # FIXME This opens an HTML page that is supposed to support a whole lot of things that we don't really support yet!
     nil  
   end
 end

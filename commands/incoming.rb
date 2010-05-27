@@ -13,5 +13,6 @@ command 'incoming' do |cmd|
     hg_style = "#{ENV['TM_BUNDLE_SUPPORT']}/map-incoming.changelog"
     update = %x{#{hg} incoming -v --style "#{hg_style}" 2>&1}    
     format_log(:in, StringIO.new(update))
+    nil
   end
 end
