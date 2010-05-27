@@ -1,5 +1,5 @@
 require 'ruble'
-# FIXME This refers to the commit window from Textmate!
+
 command 'Commit' do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :show_as_html

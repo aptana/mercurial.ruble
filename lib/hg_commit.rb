@@ -66,7 +66,7 @@ def commit
   
     # Remove the unknown paths from the commit
     commit_matches = paths - unknown_paths
-  
+    
     if commit_matches.nil? or commit_matches.size == 0
       mup.div( "class" => "info" ) {
         mup.text! "File(s) not modified; nothing to commit."
@@ -78,17 +78,25 @@ def commit
     $stdout.flush
   
     commit_paths_array = matches_to_paths(commit_matches)
-    commit_status = matches_to_status(commit_matches).join(":")
-    commit_path_text = commit_paths_array.collect{|path| path.quote_filename_for_shell }.join(" ")
-    commit_args = %x{"#{commit_tool}" --status #{commit_status} #{commit_path_text}}
+    commit_status = matches_to_status(commit_matches) #.join(":")
+    #commit_path_text = commit_paths_array.collect{|path| path.quote_filename_for_shell }.join(" ")
+    #commit_args = %x{"#{commit_tool}" --status #{commit_status} #{commit_path_text}}
   
-    status = $CHILD_STATUS
+    # Open a commit dialog in Java, return args to commit like so: "-m 'This is my summary' 'public/500.html' "
+    require 'commit_dialog'
+    dialog =  CommitDialog.new(nil, commit_status.to_java(:string), commit_paths_array.to_java(:string))
+    status = dialog.open
+      
+    # status = $CHILD_STATUS
     if status != 0
       mup.div( "class" => "error" ) {
         mup.text! "Canceled (#{status >> 8})."
       }
-      exit(-1)
+      # exit(-1)
+      return
     end
+    
+    commit_args = dialog.args
   
     mup.div("class" => "command"){ mup.strong(%Q{#{hg} commit}); mup.text!(commit_args) }
   
