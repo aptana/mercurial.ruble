@@ -7,7 +7,7 @@ command 'AddRemove' do |cmd|
   cmd.invoke do
     hg = ENV['TM_HG'] || "hg"
     puts %x{#{hg} add}
-    puts %x{#{hg} remmove --after}
+    puts %x{#{hg} remove --after}
     nil
   end
 end

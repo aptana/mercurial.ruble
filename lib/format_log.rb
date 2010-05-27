@@ -26,13 +26,14 @@ def work_path
 end
 
 def file_paths
+  require 'shelltokenize'
+  
   if ENV['TM_SELECTED_FILES'].nil?
     ENV['TM_FILEPATH']
-    # FIXME convert ENV['TM_SELECTED_FILES'] to array of the values!
-  elsif ENV['TM_SELECTED_FILES'].split("' '")[1]
+  elsif TextMate.selected_paths_array[1]
     "Selected Files"
   else
-    ENV['TM_SELECTED_FILES'].split("' '")[0].sub(work_path, "")
+    TextMate.selected_paths_array[0].sub(work_path, "")
   end
 end
 

@@ -8,6 +8,7 @@ command 'Pull from default repo' do |cmd|
   cmd.invoke do
     hg = ENV['TM_HG'] || "hg"
     working_dir = ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY']
-    Ruble::Terminal.open "#{hg} pull", working_dir
+    Ruble::Terminal.open("#{hg} pull", working_dir)
+    nil
   end
 end
