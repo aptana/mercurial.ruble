@@ -2,53 +2,34 @@ require 'ruble'
 
 command 'Diff with Revision...' do |cmd|
   cmd.key_binding = 'M4+M2+M'
-  cmd.output = :create_new_document
-  cmd.input = :none
-  cmd.invoke =<<-EOF
-require_cmd "${TM_HG:=hg}" "If you have installed hg, then you need to either update your <tt>PATH</tt> or set the <tt>TM_HG</tt> shell variable (e.g. in Preferences / Advanced)"
+  cmd.output = :discard
+  cmd.input = :none  
+  cmd.invoke do |context|
+    hg = ENV['TM_HG'] || 'hg'
+    work_path = ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY']
+    Dir.chdir work_path
+    
+    revs = `#{hg} log -q "#{ENV['TM_FILEPATH']}"`.split
+    context.exit_show_tooltip "No older revisions of file '#{ENV['TM_FILENAME']}' found" if revs.empty?
 
-if [[ -d "$TM_PROJECT_DIRECTORY" ]]
-   then export WorkPath="$TM_PROJECT_DIRECTORY"; cd "$TM_PROJECT_DIRECTORY"
-   else export WorkPath="$TM_DIRECTORY"
-fi
+    chosen = Ruble::UI.request_item :items => revs, :prompt => "Please choose a revision of '#{ENV['TM_FILENAME']}':"
+    context.exit_discard if chosen.nil?    
+    
+    rev1 = chosen.split(":").first
 
-revs=$("$TM_HG" log -q "$TM_FILEPATH" \
-	2> >(CocoaDialog progressbar --indeterminate \
-		--title "Diff Revisions…" \
-		--text "Retrieving List of Revisions…" \
-	))
-
-revs=`osascript<<END
-	set AppleScript's text item delimiters to {"\n","\r"}
-	tell app "SystemUIServer"
-		activate
-		set ourList to (every text item of "$revs")
-		if the count of items in ourList is 0 then
-			display dialog "No older revisions of file '$(basename "$TM_FILEPATH")' found" buttons ("OK")
-			set the result to false
-		else
-			choose from list ourList with prompt "Diff '$(basename "$TM_FILEPATH")' with older revision:"
-		end if
-	end tell
-END`
-
-# exit if user canceled
-if [[ $revs = "false" ]]; then
-	osascript -e 'tell app "TextMate" to activate' &>/dev/null &	exit_discard
-fi
-
-
-revs=`echo "$revs" | tr '\r' '\n' | cut -d ":" -f 1`
-revs=( $revs )
-
-"${TM_RUBY:=ruby}" -I "$TM_BUNDLE_SUPPORT/" <<END
-	if ENV['TM_HG_EXT_DIFF']
-		require 'hg_extdiff'
-	else
-		require 'hg_diff'
-	end
-	Mercurial::diff_active_file("-r${revs[0]#r}", "Diff With Revision…")
-END
-
-EOF
+    if ENV['TM_HG_EXT_DIFF']
+      require 'hg_extdiff'
+      Mercurial::diff_active_file(context, "-r#{rev1}")
+    else
+      require 'hg_diff'
+      target_path = ENV['TM_SELECTED_FILE'] || ENV['TM_FILEPATH']
+      output_path = target_path + ".diff"
+    
+      File.open(output_path, 'w') do |file|
+        Mercurial::diff_active_file(context, "-r#{rev1}", file)
+      end
+      Ruble::Editor.open output_path
+    end
+    nil
+  end
 end
