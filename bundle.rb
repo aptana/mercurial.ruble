@@ -1,7 +1,7 @@
 require 'ruble'
 
 bundle 'Mercurial' do |bundle|
-  bundle.author = 'Frédéric Ballériaux'
+  bundle.author = 'Fr√©d√©ric Ball√©riaux'
   bundle.contact_email_rot_13 = 'serqo7@fgnesynz.pbz'
   bundle.description =  <<END
 <a href="http://www.selenic.com/mercurial/">Mercurial</a> is a source Control Management system designed for efficient handling of very large distributed projects.
