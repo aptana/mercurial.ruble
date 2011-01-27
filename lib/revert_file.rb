@@ -10,7 +10,7 @@ display = $displayname || File.basename(path)
 res = %x{
   iconv -f utf-8 -t mac <<"AS"|osascript 2>/dev/console
     tell app "TextMate" to display alert "Revert File?" ¬
-      message "Do you really want to revert the file “#{display}” and lose all local changes?" ¬
+      message "Do you really want to revert the file '#{display}' and lose all local changes?" ¬
       buttons { "Cancel", "Revert" } cancel button 1 as warning
     return button returned of result
 }
