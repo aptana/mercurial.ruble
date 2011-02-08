@@ -192,6 +192,7 @@ children:
   async: false
   customProperties: null
   displayName: Add
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -205,6 +206,7 @@ children:
   async: false
   customProperties: null
   displayName: AddRemove
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -218,6 +220,7 @@ children:
   async: false
   customProperties: null
   displayName: Annotate
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -231,6 +234,7 @@ children:
   async: false
   customProperties: null
   displayName: Commit
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -244,6 +248,7 @@ children:
   async: false
   customProperties: null
   displayName: Diff Revisions...
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -257,6 +262,7 @@ children:
   async: false
   customProperties: null
   displayName: Diff with Newest (Tip)
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -270,6 +276,7 @@ children:
   async: false
   customProperties: null
   displayName: Diff with Revision...
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -283,6 +290,7 @@ children:
   async: false
   customProperties: null
   displayName: Diff with Working Copy
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -296,6 +304,7 @@ children:
   async: false
   customProperties: null
   displayName: Help
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -309,6 +318,7 @@ children:
   async: false
   customProperties: null
   displayName: incoming
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -322,6 +332,7 @@ children:
   async: false
   customProperties: null
   displayName: Init
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -335,6 +346,7 @@ children:
   async: false
   customProperties: null
   displayName: Log
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -348,6 +360,7 @@ children:
   async: false
   customProperties: null
   displayName: Log -v
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -361,6 +374,7 @@ children:
   async: false
   customProperties: null
   displayName: outgoing
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -374,6 +388,7 @@ children:
   async: false
   customProperties: null
   displayName: Pull from default repo
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -387,6 +402,7 @@ children:
   async: false
   customProperties: null
   displayName: Push to default repo
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -400,6 +416,7 @@ children:
   async: false
   customProperties: null
   displayName: Remove
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -413,6 +430,7 @@ children:
   async: false
   customProperties: null
   displayName: Revert
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -426,6 +444,7 @@ children:
   async: false
   customProperties: null
   displayName: Revert to Revision...
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -439,6 +458,7 @@ children:
   async: false
   customProperties: null
   displayName: Undo
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -452,6 +472,7 @@ children:
   async: false
   customProperties: null
   displayName: Status
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -465,6 +486,7 @@ children:
   async: false
   customProperties: null
   displayName: Update
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
@@ -478,6 +500,7 @@ children:
   async: false
   customProperties: null
   displayName: View Revision...
+  input: [none]
   inputPath: null
   keyBindingMap:
     !!com.aptana.scripting.model.Platform 'ALL': [M4+M2+M]
