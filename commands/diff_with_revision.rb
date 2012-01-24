@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Diff with Revision...' do |cmd|
+command t(:diff_revision) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :discard
   cmd.input = :none  

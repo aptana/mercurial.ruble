@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Revert to Revision...' do |cmd|
+command t(:revert_to_revision) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :show_as_tooltip
   cmd.input = :none

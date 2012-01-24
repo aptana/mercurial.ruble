@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Revert' do |cmd|
+command t(:revert) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :show_as_tooltip
   cmd.input = :none

@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Push to default repo' do |cmd|
+command t(:push) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :show_as_tooltip
   cmd.input = :none

@@ -2,7 +2,7 @@ require 'ruble'
 require 'ruble/ui'
 require 'ruble/editor'
 
-command 'View Revision...' do |cmd|
+command t(:view_revision) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :discard
   cmd.input = :none

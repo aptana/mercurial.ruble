@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Help' do |cmd|
+command t(:help) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :show_as_html
   cmd.input = :none
