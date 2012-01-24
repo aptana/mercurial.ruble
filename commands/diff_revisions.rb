@@ -4,7 +4,7 @@ command 'Diff Revisions...' do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :discard
   cmd.input = :none
-  cmd.invke do |context|
+  cmd.invoke do |context|
     hg = ENV['TM_HG'] || 'hg'
     work_path = ENV['TM_PROJECT_DIRECTORY'] || ENV['TM_DIRECTORY']
     Dir.chdir work_path
