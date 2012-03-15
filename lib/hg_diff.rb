@@ -10,22 +10,22 @@ module Mercurial
     revs = revision.gsub( '-r', '' ).split( ' ' )       
     the_diff = %x{cd "#{work_path}";"#{hg}" diff #{revision} "#{target_path}"}
        
-    context.exit_show_tooltip "No differences found." if the_diff.empty?     
+    context.exit_show_tooltip t(:no_differences_found) if the_diff.empty?
     
     # idea here is to stream the data rather than submit it in one big block
     the_diff.each_line do |line|
       if line =~ /^diff -r (\w+)( -r (\w+))? .*/
-        io.puts "Index: " + target_path
+        io.puts t(:index_0, :target_path => target_path)
         io.puts "===================================================================\n"
              
         if revs[1]
-          io.puts "diff of revs " + revs[0] + " (#{$1})" + " and " + revs[1] + " (#{$2})" 
+          io.puts t(:diff_revs_0_and_1, :rev_0 => revs[0], :name_0 => $1, :rev_1 => revs[1], :name_1 => $2)
         elsif revs[0] == 'tip'
-          io.puts "diff with tip (#{$1})"
+          io.puts t(:diff_tip_0, :name => $1)
         elsif revs.empty?
-          io.puts "diff with working copy (#{$1})"
+          io.puts t(:diff_working_copy_0, :name => $1)
         else
-          io.puts "diff with revision " + revs[0] + "(#{$1})"
+          io.puts t(:diff_revision_0_1, :rev => revs[0], :name => $1)
         end
       elsif line =~ /(^@@\s*.+?\s*@@)(.*)?/
         io.puts $1

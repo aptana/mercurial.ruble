@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Diff with Revision...' do |cmd|
+command t(:diff_revision) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :discard
   cmd.input = :none  
@@ -10,10 +10,10 @@ command 'Diff with Revision...' do |cmd|
     Dir.chdir work_path
     
     revs = `#{hg} log -q "#{ENV['TM_FILEPATH']}"`.split
-    context.exit_show_tooltip "No older revisions of file '#{ENV['TM_FILENAME']}' found" if revs.empty?
+    context.exit_show_tooltip t(:no_revisions_found, :filename => ENV['TM_FILENAME']) if revs.empty?
 
-    chosen = Ruble::UI.request_item :items => revs, :prompt => "Please choose a revision of '#{ENV['TM_FILENAME']}':"
-    context.exit_discard if chosen.nil?    
+    chosen = Ruble::UI.request_item :items => revs, :prompt => t(:choose_revision, :filename => ENV['TM_FILENAME'])
+    context.exit_discard if chosen.nil?
     
     rev1 = chosen.split(":").first
 

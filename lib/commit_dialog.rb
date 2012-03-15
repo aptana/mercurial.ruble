@@ -31,13 +31,13 @@ class CommitDialog < org.eclipse.jface.dialogs.StatusDialog
   end
   
   def createButton(parent, id, label, defaultButton)
-    label = "Commit" if id == org.eclipse.jface.dialogs.IDialogConstants::OK_ID
+    label = t(:commit) if id == org.eclipse.jface.dialogs.IDialogConstants::OK_ID
     return super(parent, id, label, defaultButton)
   end
   
   def createDialogArea(parent)
     container = super(parent)
-    parent.shell.text = "Commit"
+    parent.shell.text = t(:commit)
     container.layout = org.eclipse.swt.layout.GridLayout.new(1, true)
     
     gd = org.eclipse.swt.layout.GridData.new(org.eclipse.swt.SWT::FILL, org.eclipse.swt.SWT::FILL, true, true)
@@ -45,7 +45,7 @@ class CommitDialog < org.eclipse.jface.dialogs.StatusDialog
     gd.widthHint = 440
     
     status_label = org.eclipse.swt.widgets.Label.new(container, org.eclipse.swt.SWT::NONE)
-    status_label.text = "Summary of changes:"
+    status_label.text = t(:summary_of_changes)
     
     # text area for commit message
     @text_area = org.eclipse.swt.widgets.Text.new(container, org.eclipse.swt.SWT::BORDER | org.eclipse.swt.SWT::MULTI | org.eclipse.swt.SWT::WRAP)
@@ -54,7 +54,7 @@ class CommitDialog < org.eclipse.jface.dialogs.StatusDialog
     # @text_area.addKeyListener(MyKeyListener.new(self))
     
     label = org.eclipse.swt.widgets.Label.new(container, org.eclipse.swt.SWT::NONE)
-    label.text = "Choose files to commit:"
+    label.text = t(:choose_file_to_commit)
 
     # Create a table with 3 columns: "<checkbox>" "<status image>" "File <filepath>"
     @table = org.eclipse.swt.widgets.Table.new(container, org.eclipse.swt.SWT::CHECK | org.eclipse.swt.SWT::BORDER | org.eclipse.swt.SWT::V_SCROLL | org.eclipse.swt.SWT::FULL_SELECTION)
@@ -65,7 +65,7 @@ class CommitDialog < org.eclipse.jface.dialogs.StatusDialog
     org.eclipse.swt.widgets.TableColumn.new(@table, org.eclipse.swt.SWT::NONE)
     # File column
     column = org.eclipse.swt.widgets.TableColumn.new(@table, org.eclipse.swt.SWT::NONE)
-    column.text = "File"
+    column.text = t(:file)
 
     # Add all the files to the table
     @map.each do |path, status|

@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Update' do |cmd|
+command t(:update) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :show_as_html
   cmd.input = :none
