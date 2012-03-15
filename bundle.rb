@@ -4,7 +4,7 @@ bundle do |bundle|
   bundle.display_name = t(:bundle_name)
   bundle.author = 'Frédéric Ballériaux'
   bundle.contact_email_rot_13 = 'serqo7@fgnesynz.pbz'
-  bundle.description = '<a href="http://www.selenic.com/mercurial/">Mercurial</a> is a source Control Management system designed for efficient handling of very large distributed projects.'
+  bundle.description = t(:bundle_description)
 
   bundle.menu t(:bundle_name) do |main_menu|
     main_menu.command t(:add)

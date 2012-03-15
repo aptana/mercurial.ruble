@@ -1,5 +1,6 @@
 en:
   bundle_name: 'Mercurial'
+  bundle_description: '<a href="http://www.selenic.com/mercurial/">Mercurial</a> is a source Control Management system designed for efficient handling of very large distributed projects.'
   add: 'Add'
   add_remove: 'AddRemove'
   remove: 'Remove'
@@ -24,4 +25,19 @@ en:
   pull: 'Pull from default repo'
   push: 'Push to default repo'
   help: 'Help'
+  no_revisions_found: "No older revisions of file '%{filename}' found"
+  choose_revision: "Please choose a revision of '%{filename}':"
+  revert_revision: "Revert '%{filename}' to revision:"
+  view_revision: "View older revision of '%{filename}':"
+  two_or_more_revisions_not_found: "Couldn't find two or more older revisions of file '%{filename}'"
+  choose_two_revisions: "Please choose two revisions of '%{filename}':"
+  file: "File"
+  choose_file_to_commit: "Choose files to commit:"
+  summary_of_changes: "Summary of changes:"
+  no_differences_found: "No differences found."
+  index_0: "Index: %{target_path}"
+  diff_revs_0_and_1: "diff of revs %{rev_0} (%{name_0}) and %{rev_1} (%{name_1})"
+  diff_tip_0: "diff with tip (%{name})"
+  diff_working_copy_0: "diff with working copy (%{name})"
+  diff_revision_0_1: "diff with revision %{rev} (%{name})"
   
