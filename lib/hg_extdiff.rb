@@ -10,7 +10,7 @@ module Mercurial
       
     the_diff = %x{cd "#{work_path}";"#{hg}" diff #{revision} "#{target_path}"}      
     
-    context.exit_show_tooltip "No differences found." if the_diff.empty?
+    context.exit_show_tooltip t(:no_differences_found) if the_diff.empty?
     
     context.exit_show_tooltip %x{cd "#{work_path}";"#{hg}" #{difftool} #{revision} "#{target_path}"}
   end

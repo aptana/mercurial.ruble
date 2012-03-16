@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'AddRemove' do |cmd|
+command t(:add_remove) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :show_as_tooltip
   cmd.input = :none

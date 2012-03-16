@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Diff with Newest (Tip)' do |cmd|
+command t(:diff_newest) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :create_new_document
   cmd.input = :none

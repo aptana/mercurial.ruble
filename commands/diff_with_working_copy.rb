@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Diff with Working Copy' do |cmd|
+command t(:diff_working_copy) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :discard
   cmd.input = :none

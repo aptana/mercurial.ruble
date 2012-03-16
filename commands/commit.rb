@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Commit' do |cmd|
+command t(:commit) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :show_as_html
   cmd.input = :none

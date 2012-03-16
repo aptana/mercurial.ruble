@@ -1,6 +1,6 @@
 require 'ruble'
 
-command 'Diff Revisions...' do |cmd|
+command t(:diff_revisions) do |cmd|
   cmd.key_binding = 'M4+M2+M'
   cmd.output = :discard
   cmd.input = :none
@@ -10,13 +10,13 @@ command 'Diff Revisions...' do |cmd|
     Dir.chdir work_path
     
     revs = `#{hg} log -q "#{ENV['TM_FILEPATH']}"`.split
-    context.exit_show_tooltip "Couldn't find two or more older revisions of file '#{ENV['TM_FILENAME']}'" if revs.size < 2
+    context.exit_show_tooltip t(:two_or_more_revisions_not_found, :filename => ENV['TM_FILENAME']) if revs.size < 2
     chosen = []
     if revs.size == 2
       chosen = revs
     else
       # Add this text somewhere in dialog: "Please select two revisions (hold down the shift key to select multiple revisions)."
-      chosen = Ruble::UI.request_item :items => revs, :prompt => "Please choose two revisions of '#{ENV['TM_FILENAME']}':", :multiple => true
+      chosen = Ruble::UI.request_item :items => revs, :prompt => t(:choose_two_revisions, :filename => ENV['TM_FILENAME']), :multiple => true
       context.exit_discard if chosen.nil?
       if chosen.length < 2
         # TODO Force them to re-pick
